@@ -1,0 +1,39 @@
+server:
+  port: 8091
+  gin:
+    mode: "debug"
+    cors:
+      enabled: true
+      allowed_origins:
+        - "http://localhost:8080/"
+      allowed_methods:
+        - "GET"
+        - "POST"
+        - "PUT"
+        - "PATCH"
+        - "DELETE"
+        - "HEAD"
+        - "OPTIONS"
+      allowed_headers:
+        - "Origin"
+      exposed_headers:
+        - "Content-Length"
+      allow_credentials: true
+  session_cookie:
+    name: "dummy_token"
+    domain: localhost
+    max_age: 86400
+    secure: false
+    http_only: false
+sql:
+  driver: mysql
+  host: localhost
+  port: 3306
+  user: root
+  password: password
+  database: dummy_db
+  protocol: tcp
+redis:
+  protocol: redis
+  host: localhost
+  port: 6400
